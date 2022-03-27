@@ -1,0 +1,39 @@
+article {
+  display: flex;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eaeaea;
+  background-color: white;
+}
+
+article img {
+  object-fit: contain;
+  width: 10rem;
+  height: 10rem;
+}
+
+article h3 {
+  font-weight: normal;
+}
+
+.details_product {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.max_price {
+  text-decoration: line-through;
+  font-size: 0.7rem;
+  color: #999;
+}
+
+.text_price {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.text_envio {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #00a650;
+  margin: 0;
+}
