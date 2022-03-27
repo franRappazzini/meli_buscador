@@ -5,7 +5,7 @@ import React from "react";
 function Product({ thumbnail, title, prices }) {
   function discount_rate(high_price, low_price) {
     const discount = (high_price - low_price) / high_price;
-    return discount * 100;
+    return Math.floor(discount * 100);
   }
 
   return (
@@ -21,12 +21,24 @@ function Product({ thumbnail, title, prices }) {
                 ${new Intl.NumberFormat().format(prices.prices[0].amount)}
               </span>
             )}
-            <p className="text_price">
-              $
-              {new Intl.NumberFormat().format(
-                prices.prices[prices.prices.length - 1].amount
+            <div className="price_container">
+              <p className="text_price">
+                $
+                {new Intl.NumberFormat().format(
+                  prices.prices[prices.prices.length - 1].amount
+                )}
+              </p>
+              {prices.prices[0].amount !==
+                prices.prices[prices.prices.length - 1].amount && (
+                <span>
+                  {discount_rate(
+                    prices.prices[0].amount,
+                    prices.prices[prices.prices.length - 1].amount
+                  )}
+                  % OFF
+                </span>
               )}
-            </p>
+            </div>
             <p className="text_envio">Envio gratis</p>
           </div>
           <div></div>

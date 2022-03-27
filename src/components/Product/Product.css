@@ -26,9 +26,20 @@ article h3 {
   color: #999;
 }
 
+.price_container {
+  display: flex;
+  align-items: center;
+}
+
 .text_price {
   font-size: 1.5rem;
   margin: 0;
+}
+
+.price_container span {
+  font-size: 0.9rem;
+  color: #00a650;
+  margin-left: 0.5rem;
 }
 
 .text_envio {

@@ -15,9 +15,9 @@ function Header() {
     dispatch(get_products(search, order_by));
   }, [dispatch, search, order_by]);
 
-  fetch("https://api.mercadolibre.com/sites/MLA/search?category=MLA1055")
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+  // fetch("https://api.mercadolibre.com/sites/MLA/search?category=MLA1055")
+  //   .then((res) => res.json())
+  //   .then((data) => console.log(data));
 
   function handleSubmit(e) {
     e.preventDefault();
