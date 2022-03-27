@@ -2,7 +2,12 @@ import "./Product.css";
 
 import React from "react";
 
-function Product({ thumbnail, title, price, prices }) {
+function Product({ thumbnail, title, prices }) {
+  function discount_rate(high_price, low_price) {
+    const discount = (high_price - low_price) / high_price;
+    return discount * 100;
+  }
+
   return (
     <article>
       <img src={thumbnail} alt={title} />

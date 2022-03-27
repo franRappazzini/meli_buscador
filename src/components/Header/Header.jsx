@@ -2,17 +2,22 @@ import "./Header.css";
 
 import { BsCart2, BsGeoAlt, BsSearch } from "react-icons/bs";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { get_products } from "../../redux/actions/ProductsAction";
-import { useDispatch } from "react-redux";
 
 function Header() {
   const [search, setSearch] = useState("");
+  const order_by = useSelector((state) => state.orderBy);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(get_products(search));
-  }, [dispatch, search]);
+    dispatch(get_products(search, order_by));
+  }, [dispatch, search, order_by]);
+
+  fetch("https://api.mercadolibre.com/sites/MLA/search?category=MLA1055")
+    .then((res) => res.json())
+    .then((data) => console.log(data));
 
   function handleSubmit(e) {
     e.preventDefault();

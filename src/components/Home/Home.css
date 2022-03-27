@@ -1,0 +1,16 @@
+.section_order {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 0.8rem;
+  margin: 1rem 0;
+}
+
+.select_order {
+  background-color: transparent;
+  border: none;
+}
+
+.select_order option {
+  padding: 0.5rem 1rem;
+}
