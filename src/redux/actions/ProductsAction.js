@@ -1,4 +1,5 @@
 const GET_PRODUCTS = "GET_PRODUCTS";
+const GET_REVIEWS = "GET_REVIEWS";
 
 export function get_products(search, order_by) {
   return (dispatch) => {

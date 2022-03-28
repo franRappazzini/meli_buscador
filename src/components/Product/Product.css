@@ -13,6 +13,7 @@ article img {
 
 article h3 {
   font-weight: normal;
+  margin: 0 0 0.5rem 0;
 }
 
 .details_product {
@@ -47,4 +48,17 @@ article h3 {
   font-weight: 500;
   color: #00a650;
   margin: 0;
+}
+
+.reviews_container {
+  display: flex;
+  align-items: center;
+}
+.star_icon {
+  margin-right: 0.3rem;
+}
+
+.total_reviews {
+  font-size: 0.9rem;
+  color: #666;
 }
