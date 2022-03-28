@@ -3,7 +3,7 @@ import "./Product.css";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 import React, { useEffect, useState } from "react";
 
-function Product({ id, thumbnail, title, prices }) {
+function Product({ id, thumbnail, title, prices, shipping }) {
   const [totalReviews, setTotalReviews] = useState(0);
   const [ratingAverage, setRatingAverage] = useState(0);
 
@@ -78,7 +78,9 @@ function Product({ id, thumbnail, title, prices }) {
                 </span>
               )}
             </div>
-            <p className="text_envio">Envio gratis</p>
+            {shipping.free_shipping && (
+              <p className="text_envio">Envio gratis</p>
+            )}{" "}
           </div>
           <div className="reviews_container">
             {ratingAverage === 0 ? null : render_stars(ratingAverage)}

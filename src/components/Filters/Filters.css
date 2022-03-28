@@ -1,0 +1,41 @@
+.btn_free_shipping {
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.filter_container {
+  margin-bottom: 1.5rem;
+}
+
+.filter_title {
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+li {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+.cant_results {
+  color: #999;
+}
+
+.li_limit {
+  cursor: pointer;
+  color: #3483fa;
+}
