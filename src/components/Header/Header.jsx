@@ -9,11 +9,13 @@ import { get_products } from "../../redux/actions/ProductsAction";
 function Header() {
   const [search, setSearch] = useState("");
   const order_by = useSelector((state) => state.orderBy);
+  const filters = useSelector((state) => state.filters);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(get_products(search, order_by));
-  }, [dispatch, search, order_by]);
+    // console.log(filters);
+    dispatch(get_products(search, order_by, filters));
+  }, [dispatch, search, order_by, filters]);
 
   // fetch("https://api.mercadolibre.com/sites/MLA/search?category=MLA1055")
   //   .then((res) => res.json())

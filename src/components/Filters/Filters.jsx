@@ -1,19 +1,29 @@
 import "./Filters.css";
 
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { useSelector } from "react-redux";
+import { post_filters } from "../../redux/actions/FiltersAction";
 
 function Filters() {
-  //   const [modelLimit, setModelLimit] = useState(9);
+  // const [modelLimit, setModelLimit] = useState(9);
+  const [selectedFilters, setSelectedFilters] = useState([]);
   const filters = useSelector((state) => state.products.filters);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(filters);
-  }, [filters]);
+    dispatch(post_filters(selectedFilters));
+    // console.log(filters);
+  }, [dispatch, selectedFilters]);
+
+  // filtra los productos
+  function handleSelected(id, value) {
+    console.log(id, value);
+    setSelectedFilters([...selectedFilters, { id, value }]);
+  }
 
   return (
-    <>
+    <div>
       <button className="btn_free_shipping">
         Envio gratis
         <input type="checkbox" />
@@ -25,7 +35,11 @@ function Filters() {
             <p className="filter_title">{filter.name}</p>
             <ul>
               {filter.values.slice(0, 9).map((val) => (
-                <li key={val.id}>
+                <li
+                  key={val.id}
+                  className="li_filter"
+                  onClick={() => handleSelected(filter.id, val.id)}
+                >
                   {val.name}{" "}
                   <span className="cant_results">({val.results})</span>
                 </li>
@@ -36,73 +50,7 @@ function Filters() {
             </ul>
           </div>
         ))}
-
-      <div>
-        {/* {condition && (
-        <div className="filter_container">
-          <p className="filter_title">{condition.name}</p>
-          <ul>
-            {condition.values.map((val) => (
-              <li key={val.id}>
-                {val.name} <span className="cant_results">({val.results})</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {installments && (
-        <div className="filter_container">
-          <p className="filter_title">{installments.name}</p>
-          <ul>
-            {installments.values.map((val) => (
-              <li key={val.id}>
-                {val.name} <span className="cant_results">({val.results})</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {price && (
-        <div className="filter_container">
-          <p className="filter_title">{price.name}</p>
-          <ul>
-            {price.values.map((val) => (
-              <li key={val.id}>
-                {val.name} <span className="cant_results">({val.results})</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {model && (
-        <div className="filter_container">
-          <p className="filter_title">{model.name}</p>
-          <ul>
-            {model.values.slice(0, modelLimit).map((val) => (
-              <li key={val.id}>
-                {val.name} <span className="cant_results">({val.results})</span>
-              </li>
-            ))}
-            {modelLimit === 9 ? (
-              <li
-                onClick={() => setModelLimit(model.length)}
-                className="li_model_limit"
-              >
-                Ver todos
-              </li>
-            ) : (
-              <li onClick={() => setModelLimit(9)} className="li_model_limit">
-                Ver menos
-              </li>
-            )}
-          </ul>
-        </div>
-      )} */}
-      </div>
-    </>
+    </div>
   );
 }
 

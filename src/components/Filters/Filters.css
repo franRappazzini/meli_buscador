@@ -35,6 +35,14 @@ li {
   color: #999;
 }
 
+.li_filter {
+  cursor: pointer;
+}
+
+.li_filter:hover {
+  color: #333;
+}
+
 .li_limit {
   cursor: pointer;
   color: #3483fa;
