@@ -10,11 +10,12 @@ import { order_by } from "../../redux/actions/OrderByAction";
 function Home() {
   const [orderValue, setOrderValue] = useState("relevance");
   const products = useSelector((state) => state.products.products);
+  const filters = useSelector((state) => state.filters);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(order_by(orderValue));
-  }, [dispatch, orderValue]);
+  }, [dispatch, orderValue, filters]);
 
   return (
     <main>
@@ -35,6 +36,7 @@ function Home() {
       <section className="main_section">
         <aside>
           <h3>Producto</h3>
+
           <Filters />
         </aside>
         <section>

@@ -13,7 +13,6 @@ function Header() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // console.log(filters);
     dispatch(get_products(search, order_by, filters));
   }, [dispatch, search, order_by, filters]);
 
