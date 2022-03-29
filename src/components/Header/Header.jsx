@@ -30,6 +30,7 @@ function Header() {
         <img
           src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.9/mercadolibre/logo__large_plus.png"
           alt="mercadolibre_logo"
+          onClick={() => setSearch("")}
         />
         <section className="section_envio">
           <BsGeoAlt size={25} />

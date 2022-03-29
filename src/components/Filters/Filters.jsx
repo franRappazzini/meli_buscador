@@ -1,13 +1,15 @@
 import "./Filters.css";
 
+import { BsFillLightningFill, BsX } from "react-icons/bs";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { BsX } from "react-icons/bs";
 import { post_filters } from "../../redux/actions/FiltersAction";
 
 function Filters() {
   // const [modelLimit, setModelLimit] = useState(9);
+  const [switchFull, setSwitchFull] = useState(false);
+  const [switchFree, setSwitchFree] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
   const filters = useSelector((state) => state.products.filters);
   const active_filters = useSelector((state) => state.filters);
@@ -15,8 +17,19 @@ function Filters() {
 
   useEffect(() => {
     dispatch(post_filters(selectedFilters));
-    // console.log(filters);
-  }, [dispatch, selectedFilters]);
+
+    // verificar si el filtro esta activo, sino desactiva el switch
+    const verify_shipping_cost = selectedFilters.find(
+      (filter) => filter.id === "shipping_cost"
+    );
+    const verify_shipping = selectedFilters.find(
+      (filter) => filter.id === "shipping"
+    );
+    !verify_shipping_cost && setSwitchFree(false);
+    !verify_shipping && setSwitchFull(false);
+
+    console.log(filters);
+  }, [dispatch, selectedFilters, filters]);
 
   // filtra los productos
   function handleSelected(id, value, name) {
@@ -35,6 +48,22 @@ function Filters() {
     setSelectedFilters(selectedFilters.filter((filter) => filter.id !== id));
   }
 
+  function handleFullShipping() {
+    setSwitchFull(!switchFull);
+
+    !switchFull
+      ? handleSelected("shipping", "fulfillment", "Full")
+      : handleRemove("shipping");
+  }
+
+  function handeFreeShipping() {
+    setSwitchFree(!switchFree);
+
+    !switchFree
+      ? handleSelected("shipping_cost", "free", "Envio gratis")
+      : handleRemove("shipping_cost");
+  }
+
   return (
     <section>
       <section className="selected_filters_container">
@@ -47,10 +76,26 @@ function Filters() {
           ))}
       </section>
 
-      <button className="btn_free_shipping">
-        Envio gratis
-        <input type="checkbox" />
-      </button>
+      {filters.length > 0 && (
+        <button className="btn_free_shipping" onClick={handleFullShipping}>
+          <section>
+            <div>
+              <BsFillLightningFill size={15} color="#00a650" />
+              <span className="full">FULL</span>
+              te ahorra envios
+            </div>
+            <span className="text_full">Con tu carrito de compras</span>
+          </section>
+          <input type="checkbox" checked={switchFull} />
+        </button>
+      )}
+
+      {filters.length > 0 && (
+        <button className="btn_free_shipping" onClick={handeFreeShipping}>
+          Envio gratis
+          <input type="checkbox" checked={switchFree} />
+        </button>
+      )}
 
       {filters.length > 0 &&
         filters.map((filter) => (

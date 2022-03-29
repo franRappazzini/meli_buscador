@@ -1,9 +1,14 @@
 import "./Product.css";
 
-import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
+import {
+  BsFillLightningFill,
+  BsStar,
+  BsStarFill,
+  BsStarHalf,
+} from "react-icons/bs";
 import React, { useEffect, useState } from "react";
 
-function Product({ id, thumbnail, title, prices, shipping }) {
+function Product({ id, permalink, thumbnail, title, prices, shipping }) {
   const [totalReviews, setTotalReviews] = useState(0);
   const [ratingAverage, setRatingAverage] = useState(0);
 
@@ -26,7 +31,7 @@ function Product({ id, thumbnail, title, prices, shipping }) {
     // segun la cantidad de enteros que tenga el ratingAverage se renderizan las estrellas
     for (let i = 1; i <= Math.floor(ratingAverage); i++) {
       total.push(
-        <BsStarFill color="#3483fa" className="star_icon" size={13} />
+        <BsStarFill key={i} color="#3483fa" className="star_icon" size={13} />
       );
     }
 
@@ -48,49 +53,59 @@ function Product({ id, thumbnail, title, prices, shipping }) {
   }
 
   return (
-    <article>
-      <img src={thumbnail} alt={title} />
-      <section>
-        <h3>{title}</h3>
-        <section className="details_product">
-          <div>
-            {prices.prices[0].amount !==
-              prices.prices[prices.prices.length - 1].amount && (
-              <span className="max_price">
-                ${new Intl.NumberFormat().format(prices.prices[0].amount)}
-              </span>
-            )}
-            <div className="price_container">
-              <p className="text_price">
-                $
-                {new Intl.NumberFormat().format(
-                  prices.prices[prices.prices.length - 1].amount
-                )}
-              </p>
+    <a href={permalink} target="_blank" rel="noopener noreferrer">
+      <article>
+        <img src={thumbnail} alt={title} />
+        <section>
+          <h3>{title}</h3>
+          <section className="details_product">
+            <div>
               {prices.prices[0].amount !==
                 prices.prices[prices.prices.length - 1].amount && (
-                <span>
-                  {discount_rate(
-                    prices.prices[0].amount,
-                    prices.prices[prices.prices.length - 1].amount
-                  )}
-                  % OFF
+                <span className="max_price">
+                  ${new Intl.NumberFormat().format(prices.prices[0].amount)}
                 </span>
               )}
+              <div className="price_container">
+                <p className="text_price">
+                  $
+                  {new Intl.NumberFormat().format(
+                    prices.prices[prices.prices.length - 1].amount
+                  )}
+                </p>
+                {prices.prices[0].amount !==
+                  prices.prices[prices.prices.length - 1].amount && (
+                  <span>
+                    {discount_rate(
+                      prices.prices[0].amount,
+                      prices.prices[prices.prices.length - 1].amount
+                    )}
+                    % OFF
+                  </span>
+                )}
+              </div>
+              <div className="div_shipping_container">
+                {shipping.free_shipping && (
+                  <p className="text_envio">Envio gratis</p>
+                )}
+                {shipping.logistic_type === "fulfillment" && (
+                  <div>
+                    <BsFillLightningFill size={15} color="#00a650" />
+                    <span className="full">FULL</span>
+                  </div>
+                )}
+              </div>
             </div>
-            {shipping.free_shipping && (
-              <p className="text_envio">Envio gratis</p>
-            )}{" "}
-          </div>
-          <div className="reviews_container">
-            {ratingAverage === 0 ? null : render_stars(ratingAverage)}
-            {ratingAverage === 0 ? null : (
-              <span className="total_reviews">{totalReviews}</span>
-            )}
-          </div>
+            <div className="reviews_container">
+              {ratingAverage === 0 ? null : render_stars(ratingAverage)}
+              {ratingAverage === 0 ? null : (
+                <span className="total_reviews">{totalReviews}</span>
+              )}
+            </div>
+          </section>
         </section>
-      </section>
-    </article>
+      </article>
+    </a>
   );
 }
 

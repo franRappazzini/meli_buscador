@@ -35,7 +35,7 @@ function Home() {
 
       <section className="main_section">
         <aside>
-          <h3>Producto</h3>
+          {products.length > 0 && <h3>Producto</h3>}
 
           <Filters />
         </aside>

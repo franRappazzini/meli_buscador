@@ -16,13 +16,14 @@ export function get_products(search, order_by, filters) {
       `https://api.mercadolibre.com/sites/MLA/search?q=${search}&sort=${order_by}${order_filters()}`
     )
       .then((res) => res.json())
-      .then((data) =>
+      .then((data) => {
+        console.log(data.results);
         dispatch({
           type: GET_PRODUCTS,
           products: data.results,
           filters: data.available_filters,
-        })
-      )
+        });
+      })
       .catch((err) => console.log("ERROR: ", err));
   };
 }

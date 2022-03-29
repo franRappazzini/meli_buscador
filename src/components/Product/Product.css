@@ -1,3 +1,8 @@
+a {
+  color: black;
+  text-decoration: none;
+}
+
 article {
   display: flex;
   padding: 1rem 0;
@@ -14,11 +19,13 @@ article img {
 article h3 {
   font-weight: normal;
   margin: 0 0 0.5rem 0;
+  margin-left: 1.5rem;
 }
 
 .details_product {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-left: 1.5rem;
 }
 
 .max_price {
@@ -43,11 +50,22 @@ article h3 {
   margin-left: 0.5rem;
 }
 
+.div_shipping_container {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.div_shipping_container div {
+  display: flex;
+  align-items: center;
+}
+
 .text_envio {
   font-size: 0.8rem;
   font-weight: 500;
   color: #00a650;
-  margin: 0;
+  margin: 0 0.5rem 0 0;
 }
 
 .reviews_container {

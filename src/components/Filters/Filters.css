@@ -1,5 +1,6 @@
 .btn_free_shipping {
   padding: 1rem;
+  margin: 0.2rem 0;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -8,6 +9,28 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: 600;
+}
+
+.btn_free_shipping div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.3rem;
+}
+.full {
+  color: #00a650;
+  font-weight: 900;
+  font-size: 0.7rem;
+  font-style: italic;
+  margin-right: 0.5rem;
+}
+
+.text_full {
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-align: start;
 }
 
 .filter_container {
