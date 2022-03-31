@@ -4,6 +4,7 @@ import { BsFillLightningFill, BsX } from "react-icons/bs";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import SwitchBtn from "../SwitchBtn/SwitchBtn";
 import { post_filters } from "../../redux/actions/FiltersAction";
 
 function Filters() {
@@ -27,8 +28,6 @@ function Filters() {
     );
     !verify_shipping_cost && setSwitchFree(false);
     !verify_shipping && setSwitchFull(false);
-
-    console.log(filters);
   }, [dispatch, selectedFilters, filters]);
 
   // filtra los productos
@@ -56,7 +55,7 @@ function Filters() {
       : handleRemove("shipping");
   }
 
-  function handeFreeShipping() {
+  function handleFreeShipping() {
     setSwitchFree(!switchFree);
 
     !switchFree
@@ -86,14 +85,31 @@ function Filters() {
             </div>
             <span className="text_full">Con tu carrito de compras</span>
           </section>
+
+          <label class="switch">
+            <input type="checkbox" checked={switchFull} />
+            <span class="slider round"></span>
+          </label>
+
           <input type="checkbox" checked={switchFull} />
+
+          {/* <SwitchBtn
+          // checked={switchFull}
+          // setSwitchBtn={setSwitchFull}
+          // onClick={handleFullShipping}
+          /> */}
         </button>
       )}
 
       {filters.length > 0 && (
-        <button className="btn_free_shipping" onClick={handeFreeShipping}>
+        <button className="btn_free_shipping" onClick={handleFreeShipping}>
           Envio gratis
-          <input type="checkbox" checked={switchFree} />
+          {/* <SwitchBtn
+            checked={switchFree}
+            // setSwitchBtn={setSwitchFull}
+            onClick={handleFreeShipping}
+          /> */}
+          {/* <input type="checkbox" checked={switchFree} /> */}
         </button>
       )}
 

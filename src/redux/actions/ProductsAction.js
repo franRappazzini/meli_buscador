@@ -17,11 +17,14 @@ export function get_products(search, order_by, filters) {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.results);
+        console.log(data);
+        console.log("search:", search);
         dispatch({
           type: GET_PRODUCTS,
           products: data.results,
           filters: data.available_filters,
+          search: search,
+          cant_products: data.paging.total,
         });
       })
       .catch((err) => console.log("ERROR: ", err));

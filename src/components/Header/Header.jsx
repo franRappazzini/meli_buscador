@@ -16,10 +16,6 @@ function Header() {
     dispatch(get_products(search, order_by, filters));
   }, [dispatch, search, order_by, filters]);
 
-  // fetch("https://api.mercadolibre.com/sites/MLA/search?category=MLA1055")
-  //   .then((res) => res.json())
-  //   .then((data) => console.log(data));
-
   function handleSubmit(e) {
     e.preventDefault();
   }

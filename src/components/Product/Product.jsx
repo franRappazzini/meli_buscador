@@ -38,14 +38,21 @@ function Product({ id, permalink, thumbnail, title, prices, shipping }) {
     // si el ratingAverage tiene un decimal se renderiza media estrella mas
     if (!Number.isInteger(ratingAverage)) {
       total.push(
-        <BsStarHalf color="#3483fa" className="star_icon" size={13} />
+        <BsStarHalf
+          key={ratingAverage}
+          color="#3483fa"
+          className="star_icon"
+          size={13}
+        />
       );
     }
 
     // si no llega a completar 5 estrellas se renderizan vacias
     if (Math.ceil(ratingAverage) < 5) {
       for (let i = Math.ceil(ratingAverage); i < 5; i++) {
-        total.push(<BsStar color="#3483fa" className="star_icon" size={13} />);
+        total.push(
+          <BsStar key={i} color="#3483fa" className="star_icon" size={13} />
+        );
       }
     }
 

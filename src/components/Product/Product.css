@@ -24,7 +24,7 @@ article h3 {
 
 .details_product {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 18rem);
   margin-left: 1.5rem;
 }
 
