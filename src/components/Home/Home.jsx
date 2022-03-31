@@ -20,9 +20,10 @@ function Home() {
     dispatch(order_by(orderValue));
 
     // para obtener las categorias relacionadas con la busqueda
-    dispatch(get_category(products[0].category_id));
-    console.log("CATEGORIAS", categories);
-  }, [dispatch, orderValue]);
+    dispatch(
+      get_category(products.length > 0 ? products[0].category_id : null)
+    );
+  }, [dispatch, orderValue, products]);
 
   function capitalized(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -30,52 +31,57 @@ function Home() {
 
   return (
     <main>
-      <section className="first_section_main">
-        <section>
-          {products.length > 0 &&
-            categories.map((cat) => <span>{cat.name}</span>)}
-        </section>
+      {products.length > 0 && (
+        <>
+          <section className="first_section_main">
+            <ul className="ul_categories">
+              {categories.map((cat) => (
+                <li key={cat.id}>{cat.name}</li>
+              ))}
+            </ul>
 
-        <section className="section_order">
-          <span>Ordenar por </span>
-          <select
-            name="select"
-            className="select_order"
-            value={orderValue}
-            onChange={(e) => setOrderValue(e.target.value)}
-          >
-            <option className="option_order" value="relevance">
-              Mas relevantes
-            </option>
-            <option className="option_order" value="price_asc">
-              Menor precio
-            </option>
-            <option className="option_order" value="price_desc">
-              Mayor precio
-            </option>
-          </select>
-        </section>
-      </section>
-
-      <section className="main_section">
-        <aside>
-          {products.length > 0 && (
-            <section className="product_search">
-              <h1>{capitalized(search)}</h1>
-              <span className="cant_products">
-                {new Intl.NumberFormat().format(cant_products)} resultados
-              </span>
+            <section className="section_order">
+              <span>Ordenar por </span>
+              <select
+                name="select"
+                className="select_order"
+                value={orderValue}
+                onChange={(e) => setOrderValue(e.target.value)}
+              >
+                <option className="option_order" value="relevance">
+                  Mas relevantes
+                </option>
+                <option className="option_order" value="price_asc">
+                  Menor precio
+                </option>
+                <option className="option_order" value="price_desc">
+                  Mayor precio
+                </option>
+              </select>
             </section>
-          )}
+          </section>
 
-          <Filters />
-        </aside>
-        <section>
-          {products &&
-            products.length > 0 &&
-            products.map((prod) => <Product key={prod.id} {...prod} />)}
-        </section>
-      </section>
+          <section className="main_section">
+            <aside>
+              {
+                <section className="product_search">
+                  <h1>{capitalized(search)}</h1>
+                  <span className="cant_products">
+                    {new Intl.NumberFormat().format(cant_products)} resultados
+                  </span>
+                </section>
+              }
+
+              <Filters />
+            </aside>
+            <section>
+              {products.map((prod) => (
+                <Product key={prod.id} {...prod} />
+              ))}
+            </section>
+          </section>
+        </>
+      )}
     </main>
   );
 }

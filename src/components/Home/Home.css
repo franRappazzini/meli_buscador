@@ -1,15 +1,33 @@
 .first_section_main {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin: 2rem 0 1rem 0;
+}
+
+.ul_categories {
+  padding-right: 3rem;
+  list-style: none;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+.ul_categories li {
+  font-size: 0.85rem;
+  color: #666666;
+  width: max-content;
+}
+.ul_categories li::after {
+  content: ">";
+  margin: 0 0.5rem;
+}
+.ul_categories li:last-of-type::after {
+  content: none;
 }
 
 .section_order {
   display: flex;
-  align-items: flex-end;
+  justify-content: flex-end;
+  align-items: center;
   font-size: 0.8rem;
-  margin: 1rem 0;
 }
 
 .select_order {

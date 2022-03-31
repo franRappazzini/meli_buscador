@@ -76,64 +76,63 @@ function Filters() {
       </section>
 
       {filters.length > 0 && (
-        <button className="btn_free_shipping" onClick={handleFullShipping}>
-          <section>
-            <div>
-              <BsFillLightningFill size={15} color="#00a650" />
-              <span className="full">FULL</span>
-              te ahorra envios
-            </div>
-            <span className="text_full">Con tu carrito de compras</span>
-          </section>
+        <>
+          <button className="btn_free_shipping" onClick={handleFullShipping}>
+            <section>
+              <div>
+                <BsFillLightningFill size={15} color="#00a650" />
+                <span className="full">FULL</span>
+                te ahorra envios
+              </div>
+              <span className="text_full">Con tu carrito de compras</span>
+            </section>
 
-          <label class="switch">
+            <label class="switch">
+              <input type="checkbox" checked={switchFull} />
+              <span class="slider round"></span>
+            </label>
+
             <input type="checkbox" checked={switchFull} />
-            <span class="slider round"></span>
-          </label>
 
-          <input type="checkbox" checked={switchFull} />
-
-          {/* <SwitchBtn
+            {/* <SwitchBtn
           // checked={switchFull}
           // setSwitchBtn={setSwitchFull}
           // onClick={handleFullShipping}
           /> */}
-        </button>
-      )}
+          </button>
 
-      {filters.length > 0 && (
-        <button className="btn_free_shipping" onClick={handleFreeShipping}>
-          Envio gratis
-          {/* <SwitchBtn
+          <button className="btn_free_shipping" onClick={handleFreeShipping}>
+            Envio gratis
+            {/* <SwitchBtn
             checked={switchFree}
             // setSwitchBtn={setSwitchFull}
             onClick={handleFreeShipping}
           /> */}
-          {/* <input type="checkbox" checked={switchFree} /> */}
-        </button>
-      )}
+            {/* <input type="checkbox" checked={switchFree} /> */}
+          </button>
 
-      {filters.length > 0 &&
-        filters.map((filter) => (
-          <div className="filter_container" key={filter.id}>
-            <p className="filter_title">{filter.name}</p>
-            <ul>
-              {filter.values.slice(0, 9).map((val) => (
-                <li
-                  key={val.id}
-                  className="li_filter"
-                  onClick={() => handleSelected(filter.id, val.id, val.name)}
-                >
-                  {val.name}{" "}
-                  <span className="cant_results">({val.results})</span>
-                </li>
-              ))}
-              {filter.values.length > 9 && (
-                <li className="li_limit">Ver todos</li>
-              )}
-            </ul>
-          </div>
-        ))}
+          {filters.map((filter) => (
+            <div className="filter_container" key={filter.id}>
+              <p className="filter_title">{filter.name}</p>
+              <ul>
+                {filter.values.slice(0, 9).map((val) => (
+                  <li
+                    key={val.id}
+                    className="li_filter"
+                    onClick={() => handleSelected(filter.id, val.id, val.name)}
+                  >
+                    {val.name}{" "}
+                    <span className="cant_results">({val.results})</span>
+                  </li>
+                ))}
+                {filter.values.length > 9 && (
+                  <li className="li_limit">Ver todos</li>
+                )}
+              </ul>
+            </div>
+          ))}
+        </>
+      )}
     </section>
   );
 }
