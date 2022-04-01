@@ -48,15 +48,15 @@ function Home() {
                 value={orderValue}
                 onChange={(e) => setOrderValue(e.target.value)}
               >
-                <option className="option_order" value="relevance">
+                <li className="option_order" value="relevance">
                   Mas relevantes
-                </option>
-                <option className="option_order" value="price_asc">
+                </li>
+                <li className="option_order" value="price_asc">
                   Menor precio
-                </option>
-                <option className="option_order" value="price_desc">
+                </li>
+                <li className="option_order" value="price_desc">
                   Mayor precio
-                </option>
+                </li>
               </select>
             </section>
           </section>

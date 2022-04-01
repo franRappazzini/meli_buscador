@@ -8,7 +8,7 @@ import SwitchBtn from "../SwitchBtn/SwitchBtn";
 import { post_filters } from "../../redux/actions/FiltersAction";
 
 function Filters() {
-  // const [modelLimit, setModelLimit] = useState(9);
+  const [modelLimit, setModelLimit] = useState(9);
   const [switchFull, setSwitchFull] = useState(false);
   const [switchFree, setSwitchFree] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
@@ -87,35 +87,19 @@ function Filters() {
               <span className="text_full">Con tu carrito de compras</span>
             </section>
 
-            <label class="switch">
-              <input type="checkbox" checked={switchFull} />
-              <span class="slider round"></span>
-            </label>
-
-            <input type="checkbox" checked={switchFull} />
-
-            {/* <SwitchBtn
-          // checked={switchFull}
-          // setSwitchBtn={setSwitchFull}
-          // onClick={handleFullShipping}
-          /> */}
+            <SwitchBtn checked={switchFull} />
           </button>
 
           <button className="btn_free_shipping" onClick={handleFreeShipping}>
             Envio gratis
-            {/* <SwitchBtn
-            checked={switchFree}
-            // setSwitchBtn={setSwitchFull}
-            onClick={handleFreeShipping}
-          /> */}
-            {/* <input type="checkbox" checked={switchFree} /> */}
+            <SwitchBtn checked={switchFree} />
           </button>
 
           {filters.map((filter) => (
             <div className="filter_container" key={filter.id}>
               <p className="filter_title">{filter.name}</p>
               <ul>
-                {filter.values.slice(0, 9).map((val) => (
+                {filter.values.slice(0, modelLimit).map((val) => (
                   <li
                     key={val.id}
                     className="li_filter"
@@ -125,9 +109,19 @@ function Filters() {
                     <span className="cant_results">({val.results})</span>
                   </li>
                 ))}
-                {filter.values.length > 9 && (
-                  <li className="li_limit">Ver todos</li>
-                )}
+                {filter.values.length > 9 &&
+                  (modelLimit === 9 ? (
+                    <li
+                      className="li_limit"
+                      onClick={() => setModelLimit(filter.length)}
+                    >
+                      Ver todos
+                    </li>
+                  ) : (
+                    <li className="li_limit" onClick={() => setModelLimit(9)}>
+                      Ver menos
+                    </li>
+                  ))}
               </ul>
             </div>
           ))}

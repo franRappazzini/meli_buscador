@@ -1,6 +1,6 @@
 import "./Header.css";
 
-import { BsCart2, BsGeoAlt, BsSearch } from "react-icons/bs";
+import { BsBell, BsCart2, BsGeoAlt, BsSearch } from "react-icons/bs";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -70,6 +70,9 @@ function Header() {
               <li>Crea tu cuenta</li>
               <li>Ingresa</li>
               <li>Mis compras</li>
+              <li>
+                <BsBell size={18} />
+              </li>
               <li>
                 <BsCart2 size={20} />
               </li>
