@@ -45,7 +45,7 @@ function Header() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <BsSearch className="search_icon" color="#666" size={20} />
+            <BsSearch className="search_icon" color="#999" size={20} />
           </form>
           <nav className="header_nav">
             <ul>
