@@ -134,9 +134,15 @@ header form input:focus {
 
   .section_envio--mobile {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: #999999 solid 1px;
+  }
+
+  .section_envio--mobile div {
+    display: flex;
     align-items: center;
     padding-top: 0.5rem;
-    border-top: #999999 solid 1px;
   }
   .section_envio--mobile p {
     margin: 0 0 0 0.4rem;

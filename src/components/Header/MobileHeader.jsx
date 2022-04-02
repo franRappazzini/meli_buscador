@@ -26,6 +26,7 @@ function MobileHeader() {
           src="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.18.9/mercadolibre/logo__small@2x.png"
           alt="mercadolibre_logo"
           width="44px"
+          onClick={() => setSearch("")}
         />
         <form action="" onSubmit={handleSubmit}>
           <BsSearch className="search_icon--mobile" color="#666" size={20} />
@@ -40,7 +41,10 @@ function MobileHeader() {
         <BsCart2 size={25} color="#666" />
       </section>
       <section className="section_envio--mobile">
-        <BsGeoAlt color="#666" /> <p> Enviar a Capital Federal</p>
+        <div>
+          <BsGeoAlt color="#666" /> <p> Enviar a Capital Federal</p>
+        </div>
+        <span>{">"}</span>
       </section>
     </header>
   );
