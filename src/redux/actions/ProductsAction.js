@@ -17,8 +17,6 @@ export function get_products(search, order_by, filters) {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        console.log("search:", search);
         dispatch({
           type: GET_PRODUCTS,
           products: data.results,

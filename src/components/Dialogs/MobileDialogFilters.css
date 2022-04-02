@@ -1,0 +1,30 @@
+.li_filter_name {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  font-weight: 300;
+  background-color: white;
+  margin: 0;
+}
+
+.li_filter_name:last-of-type {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.container_sub_filters-active {
+  background-color: #fafafa;
+}
+
+.container_sub_filters {
+  display: none;
+}
+
+.sub_filter_name {
+  padding: 1rem 1.5rem;
+  background-color: #fafafa;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #3483fa;
+  margin: 0;
+}

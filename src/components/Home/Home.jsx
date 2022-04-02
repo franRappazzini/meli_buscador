@@ -4,12 +4,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Filters from "../Filters/Filters";
+import MobileFilters from "../Filters/MobileFilters";
 import Product from "../Product/Product";
 import { get_category } from "../../redux/actions/CategoryActoin";
 import { order_by } from "../../redux/actions/OrderByAction";
 
 function Home() {
   const [orderValue, setOrderValue] = useState("relevance");
+  const [openDialogOrder, setOpenDialogOrder] = useState(false);
+  const [openDialogFilters, setOpenDialogFilters] = useState(false);
   const search = useSelector((state) => state.products.search);
   const products = useSelector((state) => state.products.products);
   const cant_products = useSelector((state) => state.products.cant_products);
@@ -17,7 +20,7 @@ function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(order_by(orderValue));
+    window.innerWidth > 820 && dispatch(order_by(orderValue));
 
     // para obtener las categorias relacionadas con la busqueda
     dispatch(
@@ -74,7 +77,17 @@ function Home() {
 
               <Filters />
             </aside>
+
+            <MobileFilters
+              openDialogFilters={openDialogFilters}
+              openDialogOrder={openDialogOrder}
+              setOpenDialogFilters={setOpenDialogFilters}
+              setOpenDialogOrder={setOpenDialogOrder}
+            />
+
             <section>
+              <h1>{capitalized(search)}</h1>
+
               {products.map((prod) => (
                 <Product key={prod.id} {...prod} />
               ))}

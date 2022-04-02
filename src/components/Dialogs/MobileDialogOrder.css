@@ -1,0 +1,43 @@
+.dialog_filters {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
+
+.arrow_icon {
+  margin: 1.5rem 0 0 1.5rem;
+}
+
+.dialog_filters h3 {
+  margin: 3rem 0 3rem 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.open_false {
+  display: none;
+}
+
+.select_order {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 1.1rem;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+}
+.select_order:last-of-type {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.selector_order-active {
+  background-color: #3483fa;
+  margin: 0.2rem 1rem 0 0.1rem;
+  padding: 1.5rem 0.2rem;
+}
+.selector_order {
+  margin: 0.2rem 1rem 0 0.1rem;
+  padding: 1.5rem 0.2rem;
+}

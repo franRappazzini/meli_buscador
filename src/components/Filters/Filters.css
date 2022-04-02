@@ -1,3 +1,4 @@
+/* desktop */
 .btn_free_shipping {
   padding: 1rem;
   margin: 0.2rem 0;
@@ -69,4 +70,31 @@ li {
 .li_limit {
   cursor: pointer;
   color: #3483fa;
+}
+
+.filters_mobile {
+  display: none;
+}
+
+/* mobile */
+@media only screen and (max-width: 820px) {
+  .filters_mobile {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filters_mobile button {
+    padding: 1rem 0;
+    background-color: white;
+    border: none;
+    border-right: #999999 1px solid;
+    color: #3483fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon_filter {
+    margin-right: 0.5rem;
+  }
 }
