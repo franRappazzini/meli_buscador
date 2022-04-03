@@ -20,7 +20,7 @@
   display: none;
 }
 
-.select_order {
+.select_order--mobile {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.8);
   font-size: 1.1rem;
@@ -28,7 +28,7 @@
   display: flex;
   align-items: center;
 }
-.select_order:last-of-type {
+.select_order--mobile:last-of-type {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 

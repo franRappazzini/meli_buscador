@@ -39,15 +39,24 @@ function MobileDialogOrder({ openDialog, setOpenDialog }) {
       <h3>Ordenar por</h3>
 
       <ul>
-        <li onClick={() => handleClick("relevance")} className="select_order">
+        <li
+          onClick={() => handleClick("relevance")}
+          className="select_order--mobile"
+        >
           <div className={verifyOrder("relevance")}></div>
           Mas relevantes
         </li>
-        <li onClick={() => handleClick("price_asc")} className="select_order">
+        <li
+          onClick={() => handleClick("price_asc")}
+          className="select_order--mobile"
+        >
           <div className={verifyOrder("price_asc")}></div>
           Menor precio
         </li>
-        <li onClick={() => handleClick("price_desc")} className="select_order">
+        <li
+          onClick={() => handleClick("price_desc")}
+          className="select_order--mobile"
+        >
           <div className={verifyOrder("price_desc")}></div>
           Mayor precio
         </li>
