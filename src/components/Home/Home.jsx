@@ -17,6 +17,7 @@ function Home() {
   const products = useSelector((state) => state.products.products);
   const cant_products = useSelector((state) => state.products.cant_products);
   const categories = useSelector((state) => state.categories);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -51,15 +52,15 @@ function Home() {
                 value={orderValue}
                 onChange={(e) => setOrderValue(e.target.value)}
               >
-                <li className="option_order" value="relevance">
+                <option className="option_order" value="relevance">
                   Mas relevantes
-                </li>
-                <li className="option_order" value="price_asc">
+                </option>
+                <option className="option_order" value="price_asc">
                   Menor precio
-                </li>
-                <li className="option_order" value="price_desc">
+                </option>
+                <option className="option_order" value="price_desc">
                   Mayor precio
-                </li>
+                </option>
               </select>
             </section>
           </section>
@@ -78,16 +79,15 @@ function Home() {
               <Filters />
             </aside>
 
-            <MobileFilters
-              openDialogFilters={openDialogFilters}
-              openDialogOrder={openDialogOrder}
-              setOpenDialogFilters={setOpenDialogFilters}
-              setOpenDialogOrder={setOpenDialogOrder}
-            />
-
+            {window.innerWidth < 820 && (
+              <MobileFilters
+                openDialogFilters={openDialogFilters}
+                openDialogOrder={openDialogOrder}
+                setOpenDialogFilters={setOpenDialogFilters}
+                setOpenDialogOrder={setOpenDialogOrder}
+              />
+            )}
             <section>
-              <h1>{capitalized(search)}</h1>
-
               {products.map((prod) => (
                 <Product key={prod.id} {...prod} />
               ))}

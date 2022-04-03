@@ -77,7 +77,7 @@ function Filters() {
 
       {filters.length > 0 && (
         <>
-          <button className="btn_free_shipping" onClick={handleFullShipping}>
+          <button className="btn_free_shipping">
             <section>
               <div>
                 <BsFillLightningFill size={15} color="#00a650" />
@@ -87,12 +87,12 @@ function Filters() {
               <span className="text_full">Con tu carrito de compras</span>
             </section>
 
-            <SwitchBtn checked={switchFull} />
+            <SwitchBtn checked={switchFull} onClick={handleFullShipping} />
           </button>
 
-          <button className="btn_free_shipping" onClick={handleFreeShipping}>
+          <button className="btn_free_shipping">
             Envio gratis
-            <SwitchBtn checked={switchFree} />
+            <SwitchBtn checked={switchFree} onClick={handleFreeShipping} />
           </button>
 
           {filters.map((filter) => (
