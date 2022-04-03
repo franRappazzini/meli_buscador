@@ -1,5 +1,7 @@
 # MELI buscador
 
+*Por temas de phishing no puedo subir el sitio, toque las imagenes para ver un breve video de su funcionamiento o bien siga los pasos para levantar el proyecto en su pc
+
 [![Alt text](./src/assets/screen_desktop.png)](https://youtu.be/h8NFBm-AlUs)
 
 Buscador de productos con la API de MercadoLibre costruido con React.
