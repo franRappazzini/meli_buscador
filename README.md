@@ -1,6 +1,6 @@
 # MELI buscador
 
-[![Alt text](../src/assets/screen_desktop.ong)](https://youtu.be/h8NFBm-AlUs)
+[![Alt text](./src/assets/screen_desktop.ong)](https://youtu.be/h8NFBm-AlUs)
 
 Buscador de productos con la API de MercadoLibre costruido con React.
 Con filtros, reviews de productos, imagenes, precios, descuentos, valoraciones y mas.
