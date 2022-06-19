@@ -1,0 +1,51 @@
+.warning_container {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(1px);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.warning_container div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: whitesmoke;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 400px;
+}
+
+.warning_container p,
+.warning_container h1 {
+  text-align: center;
+}
+
+.warning_container a {
+  text-decoration: underline;
+}
+
+.warning_container button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #3483fa;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.warning_container button:hover {
+  background-color: #2968c8;
+}
+
+@media only screen and (max-width: 820px) {
+  .warning_container div {
+    max-width: 280px;
+  }
+}

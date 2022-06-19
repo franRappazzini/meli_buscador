@@ -1,4 +1,4 @@
-import { BsCart2, BsGeoAlt, BsList, BsSearch, BsXLg } from "react-icons/bs";
+import { BsCart2, BsGeoAlt, BsList, BsSearch } from "react-icons/bs";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -6,7 +6,7 @@ import { get_products } from "../../redux/actions/ProductsAction";
 
 function MobileHeader() {
   const [search, setSearch] = useState("");
-  const [openDialog, setOpenDialog] = useState(false);
+  // const [openDialog, setOpenDialog] = useState(false);
   const order_by = useSelector((state) => state.orderBy);
   const filters = useSelector((state) => state.filters);
   const dispatch = useDispatch();

@@ -5,7 +5,10 @@ import React from "react";
 function Footer() {
   return (
     <footer>
-      <span>Este sitio no es oficial, es solo un proyecto personal</span>
+      <span>
+        Este sitio no es oficial de Mercado Libre, es solo un proyecto personal
+        con fines educativos.
+      </span>
       <p>
         Creado por{" "}
         <a
