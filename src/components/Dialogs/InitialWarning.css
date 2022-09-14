@@ -13,15 +13,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: whitesmoke;
   padding: 2rem;
   border-radius: 10px;
-  max-width: 400px;
+  height: 80%;
+  width: 90%;
+}
+
+.warning_container div {
+  display: flex;
+  align-items: center;
 }
 
 .warning_container p,
 .warning_container h1 {
   text-align: center;
+  max-width: 400px;
 }
 
 .warning_container a {
